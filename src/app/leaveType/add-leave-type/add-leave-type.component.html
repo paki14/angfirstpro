@@ -1,0 +1,81 @@
+
+<div class="panel panel-default">
+
+  <div class="card">
+
+    <div class="card-header">Apply Leave Request</div>
+    <div class="card-body">
+      <form id="newLeaveRequest" #leaveRequestData="ngForm" (ngSubmit)="addNewLeaveRequest(leaveRequestData.value)" >
+        
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-sm-6" for="email">Leave Types:</label>
+              <div class="col-sm-12">
+
+                  <!-- <select _ngcontent-c5="" class="form-control form-control-sm">
+                     
+
+                      <option _ngcontent-c5="" value="lt.id" *ngFor="let lt of leaveTypes" selected="" ngModel> {{lt.leaveType}}</option>
+                    
+  
+                  </select> -->
+
+                <input type="text" class="form-control" id="leaveType" placeholder="Leave Typeas" name="leaveType" ngModel>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-sm-6" for="email">Leave Days:</label>
+              <div class="col-sm-12">
+                <input type="email" class="form-control" id="email" placeholder="Remaining Days">
+                
+              </div>
+            </div>
+          </div> -->
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-sm-6" for="email">Start Date:</label>
+              <div class="col-sm-12">
+                <input type="date" class="form-control" id="leaveStartingDate" placeholder="Start Date" name="=leaveStartingDate"  ngModel>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-sm-6" for="email">End Date:</label>
+              <div class="col-sm-12">
+                <input type="date" class="form-control" id="leaveEndingDate" placeholder="End Date" name="leaveEndingDate" ngModel>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label col-sm-6" for="email">Reason:</label>
+              <div class="col-sm-12">
+                <textarea class="form-control" id="LeaveReason" placeholder="Enter Reason" name="LeaveReason" ngModel></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="button">
+          <button type="submit" class="btn btn-primary"  value="Add Leave Request" >Apply</button>
+        </div> -->
+        <input type="submit" value="Add Leave Request">
+      </form>
+    </div>
+  </div>
+</div>
+
