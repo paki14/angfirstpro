@@ -12,6 +12,8 @@ import { AdminStatusComponent } from './admin-status/admin-status.component';
 import { PrivilageComponent } from './privilage/privilage.component';
 import { AdminPendingComponent } from './admin-pending/admin-pending.component';
 import { LeaveManageComponent } from './leave-manage/leave-manage.component';
+import { ViewLeaveTypeComponent } from './leaveType/view-leave-type/view-leave-type.component';
+import { AddLeaveTypeComponent } from './leaveType/add-leave-type/add-leave-type.component';
 
 const routs:Routes=[
   {path:'user',component:AdminViewUserComponent},
@@ -23,6 +25,9 @@ const routs:Routes=[
   {path:'status',component:AdminStatusComponent},
   {path:'privilage',component:PrivilageComponent},
   {path:'pending',component:LeaveManageComponent},
+  {path:'pendingLeave',component:ViewLeaveTypeComponent},
+  {path:'leaveApply',component:AddLeaveTypeComponent}
+
   
   
 

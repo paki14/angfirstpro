@@ -1,9 +1,8 @@
 <br>
 <app-top-bar *ngIf="isLoggedIn"></app-top-bar><br>
 <!-- <app-login></app-login> -->
-<app-user *ngIf="isLoggedIn && userRole=='emp'"></app-user>
+<!-- <app-user *ngIf="isLoggedIn && userRole=='emp'"></app-user>
 <app-admin *ngIf="isLoggedIn && userRole=='admin'"></app-admin>
-<!-- <router-outlet></router-outlet> -->
 <form *ngIf="!isLoggedIn">
 
     <div class="imgcontainer">
@@ -34,9 +33,9 @@
             </div>
         </div>
     </div>
-</form>
+</form> -->
 
 
 <!-- <app-user ></app-user> -->
-<!-- <app-admin></app-admin> -->
+<app-admin></app-admin>
 <app-footer *ngIf="isLoggedIn"></app-footer>

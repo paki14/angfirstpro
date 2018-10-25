@@ -27,4 +27,7 @@ export class LeaveTypeService {
   editLeaveType(edi){
     return this.httpObj.put<LeaveType>(this.leaveTypeUrl+"/"+edi.id,edi);
   }
+  getLeaveTypeById(dei){
+    return this.httpObj.get<LeaveType>(this.leaveTypeUrl+"/"+dei.id);
+  }
 }

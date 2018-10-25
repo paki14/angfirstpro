@@ -1,8 +1,8 @@
 export class ApplyLeave {
-
-    leaveType:string;
-    leaveDays: number;
+    userId:number;
+    leaveTypeId:number;
     startDate:Date;
     endDate:Date;
     reason:string;
+    leaveDays: number;
 }

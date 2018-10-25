@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
+import { ApplyLeaveService } from '../Services/apply-leave.service';
+
 @Component({
   selector: 'app-leave-manage',
   templateUrl: './leave-manage.component.html',
@@ -8,15 +10,26 @@ import {HttpClient} from '@angular/common/http';
 })
 export class LeaveManageComponent implements OnInit {
 
-  constructor( private httpObj:HttpClient) { }
+  constructor(
+     private httpObj:HttpClient,
+     private leaveRequestService:ApplyLeaveService
+    ) { }
   leaveRequests=[];
   ngOnInit() {
-    this.fetchdate();
+    // this.fetchdate();
+    this.getAllLeaveRequest();
+
   }
-  fetchdate=function(){
-    this.httpObj.get("http://localhost:8080/hrm_system/leaverequest").subscribe(res=>{
-      console.log(res);
-      this.leaveRequests=res;
+  // fetchdate=function(){
+  //   this.httpObj.get("http://localhost:8080/hrm_system/leaverequest").subscribe(res=>{
+  //     console.log(res);
+  //     this.leaveRequests=res;
+  //   })
+  // }
+  getAllLeaveRequest(){
+    return this.leaveRequestService.getAllLeaves().subscribe(ltr=>{
+      this.leaveRequests=ltr;
     })
   }
+
 }

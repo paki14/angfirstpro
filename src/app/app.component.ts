@@ -14,10 +14,10 @@ export class AppComponent {
   userRole:string;
 
   login(){
-    if(this.username=="admin"&&this.password=="1234"){
+    if(this.username=="admin"&&this.password!=""){
       this.userRole="admin";
       this.isLoggedIn=true;
-    }else if(this.username=="emp"&&this.password=="user"){
+    }else if(this.username=="e"&&this.password!=""){
       this.userRole="emp";
       this.isLoggedIn=true;
     }

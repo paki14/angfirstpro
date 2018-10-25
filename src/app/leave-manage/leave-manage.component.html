@@ -11,27 +11,27 @@
               <th>Leave Type</th>
               <th>Starting date</th>
               <th>Ending date</th>
-              <th>Number of days</th>
               <th>Reason</th>
+              <th>Number of days</th>
               <th>Status</th>
-              <th>Cancel</th>
-              <th>View</th>
+              
   
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let leaveRQ of leaveRequests">
               <td>{{leaveRQ.id}}</td>
-              <td>{{leaveRQ.leaveApplierId}}</td>
-              <td>{{leaveRQ.leaveType}}</td>
-              <td>{{leaveRQ.leaveStartDate}}</td>
-              <td>{{leaveRQ.leaveEndDate}}</td>
+              <td>{{leaveRQ.userId}}</td>
+              <td>{{leaveRQ.leaveTypeId}}</td>
+              <td>{{leaveRQ.startDate}}</td>
+              <td>{{leaveRQ.endDate}}</td>
               <td>{{leaveRQ.reason}}</td>
+              <td>{{leaveRQ.leaveDays}}</td>
+
               <td>
                 <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#myModal3">Accept</button>
   
-              </td>
-              <td>
+              
                 <div class="alli">
                   <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#myModal2">Reject</button>
   
