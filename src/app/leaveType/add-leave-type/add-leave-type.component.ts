@@ -4,6 +4,7 @@ import { UserServiceService } from 'src/app/Services/user-service.service';
 import { HttpClient } from '@angular/common/http';
 import { ApplyLeave } from 'src/app/models/apply-leave.models';
 import { ApplyLeaveService } from 'src/app/Services/apply-leave.service';
+import { LeaveType } from 'src/app/models/leave-type.model';
 
 @Component({
   selector: 'app-add-leave-type',
@@ -13,15 +14,20 @@ import { ApplyLeaveService } from 'src/app/Services/apply-leave.service';
 export class AddLeaveTypeComponent implements OnInit {
   public msg:string="test";
   
-  leaveTypes=[];
+  leaveTypes:LeaveType[];
 
   applyLeaveObj:ApplyLeave=new ApplyLeave();
   applyLeaves:ApplyLeave[];
+  
 
-  constructor(private applyLeaveService:ApplyLeaveService){}
+  constructor(
+    private applyLeaveService:ApplyLeaveService,
+    private leaveService:LeaveTypeService
+    ){}
 
   ngOnInit() {
-    // this.viewLeaveType();
+    this.viewLeaveType();
+    this.viewLeaveType();
   }
   addDepartment(){
     return this.applyLeaveService.applyLeave(this.applyLeaveObj).subscribe(ad=>{
@@ -30,11 +36,11 @@ export class AddLeaveTypeComponent implements OnInit {
     })
   }
 
-  // viewLeaveType(){
-  //   return this.leaveService.getAllLeaveType().subscribe(acd=>{
-  //     this.leaveTypes=acd;
-  //   });
-  // }
+  viewLeaveType(){
+    return this.leaveService.getAllLeaveType().subscribe(acd=>{
+      this.leaveTypes=acd;
+    });
+  }
 
   // constructor(private httpObj:HttpClient,
   //   private leaveService:LeaveTypeService,
