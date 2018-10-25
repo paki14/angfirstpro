@@ -29,6 +29,8 @@ export class ViewLeaveTypeComponent implements OnInit {
   getViewLeave(){
     return this.viewLeaveService.getAllLeaves().subscribe(asd=>{
       this.viewLeaves=asd;
+      console.log(asd);
+      alert("test");
     })
   }
   getLeaveType(){
@@ -48,6 +50,7 @@ export class ViewLeaveTypeComponent implements OnInit {
   viewLeaveId(id){
     alert("id");
     this.viewLeaveObj=Object.assign({},id);
+    // console.log(this.viewLeaveObj);
   }
 
 }

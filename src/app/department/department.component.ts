@@ -60,10 +60,8 @@ export class DepartmentComponent implements OnInit {
     });
   }
   clear(){
-    this.departmentObj.id=null;
-    this.departmentObj.departmentName=null;
-    
-    
+    this.departmentObj.id=0;
+    this.departmentObj.departmentName="";
   }
   
   // updateDepartment(){

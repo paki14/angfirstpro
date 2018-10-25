@@ -29,6 +29,7 @@ export class LeaveManageComponent implements OnInit {
   getAllLeaveRequest(){
     return this.leaveRequestService.getAllLeaves().subscribe(ltr=>{
       this.leaveRequests=ltr;
+      console.log(this.leaveRequests);
     })
   }
 

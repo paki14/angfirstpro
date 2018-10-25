@@ -21,8 +21,8 @@
           <tbody>
             <tr *ngFor="let leaveRQ of leaveRequests">
               <td>{{leaveRQ.id}}</td>
-              <td>{{leaveRQ.userId}}</td>
-              <td>{{leaveRQ.leaveTypeId}}</td>
+              <td>{{leaveRQ.userId.userName}}</td>
+              <td>{{leaveRQ.leaveTypeId.leaveType}}</td>
               <td>{{leaveRQ.startDate}}</td>
               <td>{{leaveRQ.endDate}}</td>
               <td>{{leaveRQ.reason}}</td>
