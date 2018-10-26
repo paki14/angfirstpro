@@ -1,7 +1,7 @@
 <div class="panel panel-default">
 
   <div class="card">
-
+{{ applyLeaveObj | json}}
     <div class="card-header">Apply Leave Request</div>
     <div class="card-body">
       <form id="newLeaveRequest">
@@ -18,12 +18,12 @@
             <div class="form-group">
               <label class="control-label col-sm-6" for="email">Leave Type :</label>
               <div class="col-sm-12">
-                <!-- <select _ngcontent-c5="" class="form-control form-control-sm"  [(ngModel)]="applyLeaveObj.leaveTypeId">
-                  <option _ngcontent-c5="" selected="" *ngFor="let lts of leaveTypes" value="lts.id" >
+                <select _ngcontent-c5="" class="form-control form-control-sm" name="xyz" [(ngModel)]="applyLeaveObj.leaveTypeId">
+                  <option _ngcontent-c5="" selected="" *ngFor="let lts of leaveTypes" value="{{lts.id}}" >
                     {{lts.leaveType}}</option>
-                </select> -->
-                <input type="text" class="form-control" id="leaveType" placeholder="Leave Typeas" name="leaveType"
-                  [(ngModel)]="applyLeaveObj.leaveTypeId">
+                </select>
+                <!-- <input type="text" class="form-control" id="leaveType" placeholder="Leave Typeas" name="leaveType"
+                  [(ngModel)]="applyLeaveObj.leaveTypeId"> -->
               </div>
             </div>
 

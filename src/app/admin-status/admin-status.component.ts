@@ -43,4 +43,9 @@ export class AdminStatusComponent implements OnInit {
       
     })
   }
+  clear(){
+    this.statusObj.id=null;
+    this.statusObj.status=null;
+    
+  }
 }

@@ -52,5 +52,9 @@ export class RoleComponent implements OnInit {
       this.getRole();
     })
   }
+  clear(){
+    this.roleObj.id=null;
+    this.roleObj.roleName=null;
+  }
 
 }

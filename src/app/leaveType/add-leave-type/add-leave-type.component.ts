@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { ApplyLeave } from 'src/app/models/apply-leave.models';
 import { ApplyLeaveService } from 'src/app/Services/apply-leave.service';
 import { LeaveType } from 'src/app/models/leave-type.model';
+import { StatusServiceService } from 'angfirstpro/src/app/Services/status-service.service';
+import { Status } from 'angfirstpro/src/app/models/status.model';
 
 @Component({
   selector: 'app-add-leave-type',
@@ -18,28 +20,42 @@ export class AddLeaveTypeComponent implements OnInit {
 
   applyLeaveObj:ApplyLeave=new ApplyLeave();
   applyLeaves:ApplyLeave[];
-  
 
   constructor(
     private applyLeaveService:ApplyLeaveService,
-    private leaveService:LeaveTypeService
+    private leaveService:LeaveTypeService,
     ){}
 
   ngOnInit() {
     this.viewLeaveType();
-    this.viewLeaveType();
   }
+
   addDepartment(){
+    this.applyLeaveObj.startDate=new Date(this.applyLeaveObj.startDate);
+    this.applyLeaveObj.endDate=new Date(this.applyLeaveObj.endDate);
+    console.log(this.applyLeaveObj);
     return this.applyLeaveService.applyLeave(this.applyLeaveObj).subscribe(ad=>{
       alert("Leave Applyied");
       console.log(ad);
     })
+
+    
   }
 
   viewLeaveType(){
     return this.leaveService.getAllLeaveType().subscribe(acd=>{
       this.leaveTypes=acd;
     });
+  }
+
+ 
+  clear(){
+    this.applyLeaveObj.userId=null;
+    this.applyLeaveObj.leaveTypeId=null;
+    this.applyLeaveObj.startDate=null;
+    this.applyLeaveObj.endDate=null;
+    this.applyLeaveObj.reason=null;
+
   }
 
   // constructor(private httpObj:HttpClient,
