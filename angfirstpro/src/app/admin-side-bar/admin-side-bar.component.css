@@ -1,0 +1,31 @@
+.header{
+    padding: 10px;
+    background: #416298  !important;
+    color: #ffffff!important;
+}
+#footer{
+    background: #416298;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+    position: absolute;
+  }
+  .col-md-4{
+      text-align: center;
+      /* padding: 0px; */
+  }
+  .collapse{
+      background: #c7d7f0;
+  }
+  .card{
+    /* position: absolute; */
+  }
+  .nav {
+    position: fixed;
+    bottom:32px;
+    width: 10%;
+    background-color: #aaaeb3;
+    color: white;
+    text-align: center;
+ }
