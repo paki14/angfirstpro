@@ -1,0 +1,35 @@
+<form>
+
+        <div class="imgcontainer">
+            <img src="../../assets/login2.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="container">
+            <div class="modal-body">
+                <div class="row">
+                        <div class="alert alert-danger" *ngIf="loginMsg">
+                                <strong>Please Check Your User Name Or Password</strong> .
+                              </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="email">User Name:</label>
+                            <input type="text" class="form-control" id="user" name="uname" placeholder="User Name"[(ngModel)]="username">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="email">Password :</label>
+    
+                            <input type="password" class="form-control" id="pass" name="psws" placeholder="password" [(ngModel)]="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="adc">
+                    <input type="checkbox" checked="checked" name="remember"> Remember me<br>
+                    <button class="btn btn-primary" type="submit" (click)="login()">Login</button>
+                   
+                </div>
+            </div>
+        </div>
+    </form>

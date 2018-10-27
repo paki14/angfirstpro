@@ -5,4 +5,5 @@ export class ApplyLeave {
     endDate:Date;
     reason:string;
     leaveDays: number;
+    statusId:number;
 }

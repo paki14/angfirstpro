@@ -20,26 +20,36 @@ export class AddLeaveTypeComponent implements OnInit {
 
   applyLeaveObj:ApplyLeave=new ApplyLeave();
   applyLeaves:ApplyLeave[];
+  status:Status[];
+
 
   constructor(
     private applyLeaveService:ApplyLeaveService,
     private leaveService:LeaveTypeService,
+    private statusService:StatusServiceService
     ){}
 
   ngOnInit() {
     this.viewLeaveType();
+
   }
 
-  addDepartment(){
+  applyLeave(){
     this.applyLeaveObj.startDate=new Date(this.applyLeaveObj.startDate);
     this.applyLeaveObj.endDate=new Date(this.applyLeaveObj.endDate);
     console.log(this.applyLeaveObj);
     return this.applyLeaveService.applyLeave(this.applyLeaveObj).subscribe(ad=>{
       alert("Leave Applyied");
       console.log(ad);
+      this.viewLeaveType();
     })
 
     
+  }
+  addStatus(){
+    this.statusService.getAllStatus().subscribe(lt=>{
+      this.status=lt;
+    })
   }
 
   viewLeaveType(){

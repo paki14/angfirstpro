@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="card">
-      <div class="card-header active main-color-bg">Leave History</div>
+    <div class="card-header active main-color-bg">Leave History</div>
     <div class="card-body">
       <table class="table table-bordered">
         <thead>
@@ -12,48 +12,19 @@
             <th>Number of days</th>
             <th>Reason</th>
             <th>Status</th>
-
-            <th>Cancel</th>
-
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let vlt of viewLeaves ">
             <td>{{vlt.id}}</td>
-            <td >{{vlt.leaveTypeId.id}}</td>
-            <td>{{vlt.startDate}}</td>
-            <td>{{vlt.endDate}}</td>
+            <td>{{vlt.leaveTypeId.leaveType}}</td>
+            <td>{{vlt.startDate | date:"yyyy-MM-dd"}}</td>
+            <td>{{vlt.endDate | date:"yyyy-MM-dd"}}</td>
             <td>{{vlt.leaveDays}}</td>
             <td>{{vlt.reason}}</td>
-            <td>Pending</td>
-            <td>
-              <div class="alli">
-                <span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#myModal" (click)="viewLeaveId(vlt)" ></span>
-              <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Cancel</button> -->
-              <div class="modal fade" id="myModal" role="dialog">
-                  <div class="modal-dialog">
-                  
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Cancel the Leave</h4>
-                      </div>
-                      
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="deleteLeaveRequest()">Yes</button>
-                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-             
-            </td>
+            <td>pending</td>
         </tbody>
       </table>
     </div>
-
   </div>
 </div>

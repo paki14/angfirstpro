@@ -8,18 +8,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'leave';
 
-  isLoggedIn:boolean=false;
-  username:string;
-  password:string;
   userRole:string;
-
-  login(){
-    if(this.username=="admin"&&this.password!=""){
+  isLoggedIn:boolean=false;
+  login(loginStatus:string){
+   
+    if(loginStatus=="admin"){
+      this.isLoggedIn=true;
       this.userRole="admin";
+    }else if(loginStatus=="emp"){
       this.isLoggedIn=true;
-    }else if(this.username=="e"&&this.password!=""){
       this.userRole="emp";
-      this.isLoggedIn=true;
+    }else{
+      this.isLoggedIn=false;
+     
     }
   }
 }

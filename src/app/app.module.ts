@@ -33,6 +33,7 @@ import {LeaveTypeService} from './Services/leave-type.service';
 import { AdminUserService } from './Services/admin-user.service';
 import { ApplyLeaveService } from './Services/apply-leave.service';
 import { InteractionService } from './Interaction/interaction.service';
+import { UserStatusService } from './Services/user-status.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,8 @@ import { InteractionService } from './Interaction/interaction.service';
     LeaveTypeService,
     AdminUserService,
     ApplyLeaveService,
-    InteractionService
+    InteractionService,
+    UserStatusService 
   ],
   bootstrap: [AppComponent]
 })
