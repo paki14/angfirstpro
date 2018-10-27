@@ -1,3 +1,6 @@
+
+
+
 <div class="panel panel-default">
   <div class="card">
       <div class="card-header active main-color-bg">Leave History</div>
@@ -21,11 +24,11 @@
           <tr *ngFor="let vlt of viewLeaves ">
             <td>{{vlt.id}}</td>
             <td >{{vlt.leaveTypeId.id}}</td>
-            <td>{{vlt.startDate}}</td>
-            <td>{{vlt.endDate}}</td>
+            <td>{{vlt.startDate | date:"yyyy-MM-dd"}}</td>
+            <td>{{vlt.endDate | date:"yyyy-MM-dd"}}</td>
             <td>{{vlt.leaveDays}}</td>
             <td>{{vlt.reason}}</td>
-            <td>Pending</td>
+            <td>pending</td>
             <td>
               <div class="alli">
                 <span class="glyphicon glyphicon-remove" data-toggle="modal" data-target="#myModal" (click)="viewLeaveId(vlt)" ></span>
