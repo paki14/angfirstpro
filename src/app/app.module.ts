@@ -24,6 +24,7 @@ import { PrivilageComponent } from './privilage/privilage.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AdminPendingComponent } from './admin-pending/admin-pending.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Service
 import {DepartmentService } from './Services/department.service';
@@ -34,6 +35,7 @@ import { AdminUserService } from './Services/admin-user.service';
 import { ApplyLeaveService } from './Services/apply-leave.service';
 import { InteractionService } from './Interaction/interaction.service';
 import { UserStatusService } from './Services/user-status.service';
+import { LoginService } from './Services/login.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +64,8 @@ import { UserStatusService } from './Services/user-status.service';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     DepartmentService ,
@@ -72,7 +75,8 @@ import { UserStatusService } from './Services/user-status.service';
     AdminUserService,
     ApplyLeaveService,
     InteractionService,
-    UserStatusService 
+    UserStatusService,
+    LoginService 
   ],
   bootstrap: [AppComponent]
 })

@@ -37,6 +37,7 @@ export class AddLeaveTypeComponent implements OnInit {
   applyLeave(){
     this.applyLeaveObj.startDate=new Date(this.applyLeaveObj.startDate);
     this.applyLeaveObj.endDate=new Date(this.applyLeaveObj.endDate);
+    this.applyLeaveObj.statusId=17;
     console.log(this.applyLeaveObj);
     return this.applyLeaveService.applyLeave(this.applyLeaveObj).subscribe(ad=>{
       alert("Leave Applyied");

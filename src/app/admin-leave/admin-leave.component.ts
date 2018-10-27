@@ -48,6 +48,7 @@ export class AdminLeaveComponent implements OnInit {
   clear(){
     this.leaveTypeObj.id=null;
     this.leaveTypeObj.leaveType=null;
+    this.leaveTypeObj.allocationDays=null;
   }
 
 }

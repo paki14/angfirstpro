@@ -1,3 +1,4 @@
+<!-- Admin User View -->
 <div class="panel panel-default">
         <div class="card">
           <div class="card-header active main-color-bg" >User 
@@ -14,10 +15,6 @@
                     <th>Role </th>
                     <th>Department </th>
                     <th>Joint Date</th>
-                  <th>Service Period</th>
-                  <th>Created At</th>
-                  <th></th>
-      
                 </tr>
               </thead>
               <tbody>
@@ -29,241 +26,81 @@
                   <td>{{ad.lastName}}</td>
                   <td>{{ad.roleId.roleName}}</td>
                   <td>{{ad.departmentId.departmentName}}</td>
-                  <td>{{ad.jointDate}}</td>
-                  <td>{{ad.ServicePeriod}}</td>
-                  
-                  <td>
-                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#editUser">Edit</button> 
-                  </td>
+                  <td>{{ad.jointDate | date:"yyyy-MM-dd"}}</td>
                 </tr>   
               </tbody>
             </table>
           </div>
         </div>
       </div>
-
-<div class="modal fade" id="adduser" role="dialog">
+<!-- Admin add User -->
+<div class=" modal fade"  id="adduser" role="dialog">
     <div class="modal-dialog">
-
-        <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add User</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label col-sm-6" for="email">User Name :</label>
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="email" placeholder="User Name"name="as" [(ngModel)]="userObj.userName">
-                                    </div>
+                <div class="modal-header ">
+                        <h4 class="modal-title">Add New User</h4>
+                      </div>
+                      <!-- {{ addUserForm.value | json}} -->
+                      <div class="modal-body">
+                        <form [formGroup]="addUserForm" class="container-fluid" (ngSubmit)="onSubmit()">
+                          <div class="form-row ">
+                            <div class="form-group col-md-6 ">
+                              <label for="inputEmail4">User Name</label>
+                              <input formControlName="userName" type="text" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Password</label>
+                                    <input formControlName="password" type="password" class="form-control form-control-sm" >
+                                  </div>
                                 </div>
+                                <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                          <label for="inputFirstName">First Name</label>
+                                          <input formControlName="firstName" type="text" class="form-control form-control-sm" >
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                          <label for="inputLastName">Last Name</label>
+                                          <input formControlName="lastName" type="text" class="form-control form-control-sm" >
+                                        </div>
+                                      </div>
+                                <div class="form-row"> 
+                            <div class="form-group col-md-6">
+                              <label for="inputEmail4">Email</label>
+                              <input formControlName="email" type="email" class="form-control form-control-sm" >
                             </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="email">Email:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="email" placeholder="Email"name="asda" [(ngModel)]="userObj.email">
+                            <div class="form-group col-md-6">
+                                    <label for="inputDate">Join Date</label>
+                                    <input formControlName="joinDate" type="date" class="form-control form-control-sm">
+                                  </div>
+                          </div>
+                    
+                          
+                    
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputRole">Role</label>
+                              <select formControlName="roleId"  class="form-control form-control-sm">
+                                <option selected disabled>Select Role</option>
+                                <option *ngFor="let role of roles" value="{{role.id}}">{{role.roleName}}</option>
+                              </select>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="email">First Name:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="email" placeholder="First Name" name="hi" [(ngModel)]="userObj.firstName">
+                    
+                            <div class="form-group col-md-6">
+                              <label for="inputDepartment">Department</label>
+                              <select formControlName="departmentId"  class="form-control form-control-sm">
+                                <option selected disabled>Select Department</option>
+                                <option *ngFor="let department of departments" value="{{department.id}}">{{department.departmentName}}</option>
+                              </select>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="email">Last Name:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="email" placeholder="Last Name" name="hdd" [(ngModel)]="userObj.lastName">
+                           
+                          </div>
+                          <div class="col-md-12">
+                            <div class="float-right">
+                              <button type="submit" class="btn btn-primary">Add</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="email">Role:</label>
-                            <div class="col-sm-12">
-
-                                    <select _ngcontent-c5="" class="form-control form-control-sm">                                        
-                                            <option _ngcontent-c5="" value="role.id" *ngFor="let role of roles"selected=""> {{role.roleName}}</option>
-                                        </select>
-
-                                <!-- <input type="text" class="form-control" id="email" placeholder="Role" name="fss" [(ngModel)]="userObj.role.id"> -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="email">Department:</label>
-                            <div class="col-sm-12">
-
-                                    <select _ngcontent-c5="" class="form-control form-control-sm">
-                                            <option _ngcontent-c5="" disabled="" selected=""> Department</option><!--bindings={
-                                            "ng-reflect-ng-for-of": "[object Object]"
-                                          }-->
-                                          <option _ngcontent-c5="" value="department.id" *ngFor="let department of departments"selected=""> {{department.departmentName}}</option>
-                                          
-                                          <!-- <option _ngcontent-c5="" value="1" ng-reflect-value="1"> Annual </option> -->
-                        
-                                        </select>
-
-                                <!-- <input type="text" class="form-control" id="email" placeholder="Department" name="dsf" [(ngModel)]="userObj.departmentId"> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="email">Joint Date:</label>
-                            <div class="col-sm-12">
-                                <input type="date" class="form-control" id="email" placeholder="Joint Date" name="vf" [(ngModel)]="userObj.jointDate">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="email">Service Period:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="email" placeholder="Service Period" name="spo" [(ngModel)]="userObj.ServicePeriod">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="addUser()">Add</button>
-
-            </div>
-        </div>
-
-    </div>
-</div>
-<div class="modal fade" id="editUser" role="dialog">
-        <div class="modal-dialog">
-    
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Edit User</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">Email:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="email" placeholder="Email">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">First Name:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="email" placeholder="First Name">
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">Last Name:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="email" placeholder="Last Name">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">Role:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="email" placeholder="Role">
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">Department:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="email" placeholder="Department">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">Joint Date:</label>
-                                <div class="col-sm-12">
-                                    <input type="date" class="form-control" id="email" placeholder="Joint Date">
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">Service Period:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="email" placeholder="Service Period">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">User Name:</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="email" placeholder="User Name">
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-6" for="email">Password:</label>
-                                <div class="col-sm-12">
-                                    <input type="password" class="form-control" id="email" placeholder="password">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Update</button>
-    
-                </div>
-            </div>
-    
+                          </div>
+                        </form>
+                      </div>
         </div>
     </div>
+      </div>

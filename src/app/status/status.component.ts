@@ -14,8 +14,15 @@ import { UserStatus } from '../models/user-status.model';
 export class StatusComponent implements OnInit {
 
   statusObj:Status = new Status();
+  leaveObj:LeaveType= new LeaveType();
   statuses:Status[];
-  leaves:LeaveType[];
+  leaves:any=[];
+  leave:any=[];
+  percentage: number;
+
+  
+  
+
   remainDay:any=UserStatus;
   constructor( 
     private statusService:StatusServiceService,
@@ -41,10 +48,13 @@ export class StatusComponent implements OnInit {
       this.leaves=lty;
     });
   }
+ 
   getRemainingDays(){
     this.userStatusService.getStatusRemainDays().subscribe(rts=>{
       console.log(rts);
-      this.remainDay=rts;
+      this.leaves=rts;
+
+      this.percentage = (this.leaves.remainingDays / this.leaves.allocationDays)*100
     });
   }
 
