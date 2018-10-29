@@ -13,26 +13,25 @@ export class AppComponent  {
   ){}
   userRole:string;
   isLoggedIn:boolean=false;
+  userData:any;
+
   login(loginStatus:string){
    
-    if(loginStatus=="admin"){
+    if(loginStatus=="true"){
       this.isLoggedIn=true;
-      this.userRole="admin";
-    }else if(loginStatus=="emp"){
-      this.isLoggedIn=true;
-      this.userRole="emp";
-    }else{
-      this.isLoggedIn=false;
-     
-    }
-  }
-
-  ngOnInit() {
-    this.loginService.loginCredential$.subscribe(data => {
-      if(data != null){
-        this.isLoggedIn=true;
-      this.userRole=data.userRole;
-      }
+      
+      this.loginService.loginCredential$.subscribe(data => {
+        if (data != null && data !== 'error') {
+          this.isLoggedIn = true;
+          this.userData = data;
+          this.userRole=this.userData.userRole;
+        }
     });
   }
+}
+  
+
+  ngOnInit() {
+  }
+    
 }

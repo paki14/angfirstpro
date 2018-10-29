@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { ApplyLeave } from 'src/app/models/apply-leave.models';
 import { ApplyLeaveService } from 'src/app/Services/apply-leave.service';
 import { LeaveType } from 'src/app/models/leave-type.model';
-import { StatusServiceService } from 'angfirstpro/src/app/Services/status-service.service';
-import { Status } from 'angfirstpro/src/app/models/status.model';
+import { StatusServiceService } from 'src/app/Services/status-service.service';
+import { Status } from 'src/app/models/status.model';
 
 @Component({
   selector: 'app-add-leave-type',
@@ -35,13 +35,15 @@ export class AddLeaveTypeComponent implements OnInit {
   }
 
   applyLeave(){
-    this.applyLeaveObj.startDate=new Date(this.applyLeaveObj.startDate);
-    this.applyLeaveObj.endDate=new Date(this.applyLeaveObj.endDate);
-    this.applyLeaveObj.statusId=17;
-    console.log(this.applyLeaveObj);
+    // this.applyLeaveObj.startDate=new Date(this.applyLeaveObj.startDate);
+    // this.applyLeaveObj.endDate=new Date(this.applyLeaveObj.endDate);
+    // this.applyLeaveObj.statusId=17;
+    // console.log(this.applyLeaveObj);
     return this.applyLeaveService.applyLeave(this.applyLeaveObj).subscribe(ad=>{
       alert("Leave Applyied");
       console.log(ad);
+      this.applyLeaveObj=ad;
+      this.applyLeaveObj.statusId=2;
       this.viewLeaveType();
     })
 

@@ -13,48 +13,19 @@ import { UserStatus } from '../models/user-status.model';
 })
 export class StatusComponent implements OnInit {
 
-  statusObj:Status = new Status();
-  leaveObj:LeaveType= new LeaveType();
-  statuses:Status[];
-  leaves:any=[];
-  leave:any=[];
-  percentage: number;
+  leave:UserStatus[];
 
-  
-  
-
-  remainDay:any=UserStatus;
-  constructor( 
-    private statusService:StatusServiceService,
-    private leaveTypeService:LeaveTypeService,
-    private userStatusService:UserStatusService
-    ) { }
+  constructor( private userStatusService:UserStatusService) { }
 
   ngOnInit() {
-    this.getStatus();
-    this.getLeaveType();
     this.getRemainingDays()
   }
 
-  getStatus(){
-    this.statusService.getAllStatus().subscribe(sta=>{
-      console.log(sta);
-      this.statuses=sta;
-    });
-  }
-  getLeaveType(){
-    this.leaveTypeService.getAllLeaveType().subscribe(lty=>{
-      console.log(lty);
-      this.leaves=lty;
-    });
-  }
- 
+
   getRemainingDays(){
     this.userStatusService.getStatusRemainDays().subscribe(rts=>{
-      console.log(rts);
-      this.leaves=rts;
-
-      this.percentage = (this.leaves.remainingDays / this.leaves.allocationDays)*100
+      // console.log(rts);
+      this.leave=rts;
     });
   }
 

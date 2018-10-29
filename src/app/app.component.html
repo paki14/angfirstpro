@@ -1,11 +1,35 @@
 <br>
-<app-top-bar *ngIf="isLoggedIn"></app-top-bar><br>
+<app-top-bar *ngIf="isLoggedIn "></app-top-bar><br>
 <!-- <app-login></app-login> -->
-<!-- <app-user *ngIf="isLoggedIn && userRole==''"></app-user>
+<app-user *ngIf="isLoggedIn && userRole=='User'"></app-user>
 <app-admin *ngIf="isLoggedIn && userRole=='Admin'"></app-admin>
-<app-login *ngIf="!isLoggedIn" (loginEvent)="login($event)"></app-login> -->
+<app-login *ngIf="!isLoggedIn && userRole!=''" (loginEvent)="login($event)" ></app-login>
 
 
-<app-user ></app-user>
-<app-admin></app-admin>
+
+
+
+  <section id="main" *ngIf="isLoggedIn">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+                <app-admin-side-bar *ngIf="isLoggedIn && userRole=='Admin'"></app-admin-side-bar>
+                <app-side-bar *ngIf="isLoggedIn && userRole=='User'"></app-side-bar>
+               
+        </div>
+        <div class="col-md-7">
+               
+          <router-outlet></router-outlet>
+        </div>
+        <div class="col-md-3">
+          <app-status *ngIf="isLoggedIn && userRole=='User'"></app-status>
+          <app-admin-pending *ngIf="isLoggedIn && userRole=='Admin'"></app-admin-pending>
+        </div>
+      </div>
+    </div>    
+  </section>
+
+
+<!-- <app-user ></app-user>
+<app-admin></app-admin> -->
 <app-footer *ngIf="isLoggedIn"></app-footer>

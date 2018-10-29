@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import { ApplyLeaveService } from '../Services/apply-leave.service';
+import { ApplyLeave } from 'angfirstpro/src/app/models/apply-leave.models';
 
 @Component({
   selector: 'app-leave-manage',
@@ -14,7 +15,7 @@ export class LeaveManageComponent implements OnInit {
      private httpObj:HttpClient,
      private leaveRequestService:ApplyLeaveService
     ) { }
-  leaveRequests=[];
+  leaveRequests:ApplyLeave[];
   ngOnInit() {
     // this.fetchdate();
     this.getAllLeaveRequest();

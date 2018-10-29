@@ -36,6 +36,7 @@ import { ApplyLeaveService } from './Services/apply-leave.service';
 import { InteractionService } from './Interaction/interaction.service';
 import { UserStatusService } from './Services/user-status.service';
 import { LoginService } from './Services/login.service';
+import { LogSideBarComponent } from './log-side-bar/log-side-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { LoginService } from './Services/login.service';
     AdminStatusComponent,
     PrivilageComponent,
     LoginComponent,
-    AdminPendingComponent
+    AdminPendingComponent,
+    LogSideBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 export class UserStatus {
-    leaveTypeId: number
-        leaveType: String
-        allocationDays: number
-        remainingDays: number
+    id: number;
+    leaveTypeId: number;
+    userId: number;
+    remainingDays: number;
 }

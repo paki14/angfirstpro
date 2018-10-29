@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output,EventEmitter  } from '@angular/core';
 import { Login } from '../models/login.model';
 import { LoginService } from '../Services/login.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
- // @Output() loginEvent=new EventEmitter();
+ @Output() loginEvent=new EventEmitter();
 
   loginMsg:boolean=false;
   username:string;
@@ -33,14 +34,27 @@ export class LoginComponent implements OnInit {
     //   this.loginMsg =true;
     // }
     if(this.username!="" &&this.password!=""){
-     
-      
       this.loginObj.password=this.password;
       this.loginObj.userName=this.username;
     this.loginService.getLoginAuth(this.loginObj);
-    }else{
-        this.loginMsg =true;
+    this.loginService.loginCredential$.subscribe(
+      data=>{
+     
+          if(data!="error"){
+            console.log(data);
+            
+            this.loginEvent.emit("true");
+          }else{
+            
+            this.loginMsg =true;
+          }
+      },
+      error=>{
+        console.log(error);
       }
+     
+      )
+    }
   }
 
 }
