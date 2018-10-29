@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="card">
+    <div class="card-header active main-color-bg">Leave History</div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Leave Type</th>
+            <th>Starting date</th>
+            <th>Ending date</th>
+            <th>Number of days</th>
+            <th>Reason</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vlt of viewLeaves ">
+            <td>{{vlt.id}}</td>
+            <td>{{vlt.leaveTypeId.leaveType}}</td>
+            <td>{{vlt.startDate | date:"yyyy-MM-dd"}}</td>
+            <td>{{vlt.endDate | date:"yyyy-MM-dd"}}</td>
+            <td>{{vlt.leaveDays}}</td>
+            <td>{{vlt.reason}}</td>
+            <td>{{vlt.statusId.id}}</td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

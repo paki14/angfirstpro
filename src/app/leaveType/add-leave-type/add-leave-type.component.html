@@ -61,7 +61,7 @@
               <label class="control-label col-sm-6" for="email">Reason:</label>
               <div class="col-sm-12">
                 <textarea class="form-control" id="LeaveReason" placeholder="Enter Reason" name="LeaveReason"
-                  [(ngModel)]="applyLeaveObj.reason"></textarea>
+                  [(ngModel)]="applyLeaveObj.reason" (click)="onSubmit()"></textarea>
               </div>
             </div>
           </div>
@@ -69,14 +69,14 @@
             <div class="form-group">
               <label class="control-label " for="email">Leave Days:</label>
               <div class="col-sm-12">
-                <input type="data" class="form-control" id="LeaveReason" placeholder="Leave Days" name="Leaveday"
-                  [(ngModel)]="applyLeaveObj.leaveDays">
+                <input type="data" class="form-control" id="LeaveReason" placeholder="" name="Leaveday"
+                  [(ngModel)]="applyLeaveObj.leaveDays" readonly>
               </div>
             </div>
           </div>
         </div>
         <div class="button">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#apply" (click)="applyLeave()">Apply</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#apply" (click)=" applyLeave()">Apply</button>
         </div>
         <!-- <input type="submit" value="Add Leave Request"> -->
       </form>

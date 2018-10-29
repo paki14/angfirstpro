@@ -29,5 +29,9 @@ export class LoginService {
   }
 
 
+  getAllUser(data){
+    return this.http.post<Login>(this.urlLogin,data);
+  }
+
 
 }
