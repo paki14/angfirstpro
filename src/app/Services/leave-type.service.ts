@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import { LeaveType } from '../models/leave-type.model';
+import { BehaviorSubject } from 'rxjs';
 
 
 const httpOption={
@@ -11,6 +12,9 @@ const httpOption={
   providedIn: 'root'
 })
 export class LeaveTypeService {
+
+  private leaveType = new BehaviorSubject<any>(null);
+  lleaveType$ = this.leaveType.asObservable();
 
   constructor(private httpObj:HttpClient) { }
 

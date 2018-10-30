@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-
-  constructor() { }
+  @Output() loginEvent=new EventEmitter();
+  
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this.loginEvent.emit("false");
+   // this.router.navigate(['/login']);
   }
 
 }

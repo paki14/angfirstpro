@@ -23,11 +23,11 @@
               <td>{{leaveRQ.id}}</td>
               <td>{{leaveRQ.userId.userName}}</td>
               <td>{{leaveRQ.leaveTypeId.leaveType}}</td>
-              <td>{{leaveRQ.startDate}}</td>
-              <td>{{leaveRQ.endDate}}</td>
+              <td>{{leaveRQ.startDate |date:"yyyy-MM-dd"}}</td>
+              <td>{{leaveRQ.endDate | date:"yyyy-MM-dd"}}</td>
               <td>{{leaveRQ.reason}}</td>
               <td>{{leaveRQ.leaveDays}}</td>
-
+              <td>{{leaveRQ.statusId.status}}</td>
               <td>
                 <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#myModal3">Accept</button>
   

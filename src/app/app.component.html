@@ -1,41 +1,35 @@
 <br>
-<app-top-bar *ngIf="isLoggedIn"></app-top-bar><br>
+<app-top-bar *ngIf="isLoggedIn && (userRole=='User'||userRole=='Admin')"></app-top-bar><br>
 <!-- <app-login></app-login> -->
-<!-- <app-user *ngIf="isLoggedIn && userRole=='emp'"></app-user>
-<app-admin *ngIf="isLoggedIn && userRole=='admin'"></app-admin>
-<form *ngIf="!isLoggedIn">
+<!-- <app-user *ngIf="isLoggedIn && userRole=='User'"></app-user> -->
+<!-- <app-admin *ngIf="isLoggedIn && userRole=='Admin'"></app-admin> -->
+<!-- <app-login *ngIf="!isLoggedIn && userRole!=''" (loginEvent)="login($event)" ></app-login> -->
 
-    <div class="imgcontainer">
-        <img src="../../assets/login2.png" alt="Avatar" class="avatar">
-    </div>
-    <div class="container">
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="control-label col-sm-6" for="email">User Name:</label>
-                        <input type="text" class="form-control" id="email" name="uname" placeholder="User Name"[(ngModel)]="username">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="control-label col-sm-6" for="email">Password :</label>
 
-                        <input type="password" class="form-control" id="email" name="psws" placeholder="password" [(ngModel)]="password">
-                    </div>
-                </div>
-            </div>
-            <div class="adc">
-                <input type="checkbox" checked="checked" name="remember"> Remember me<br>
-                <button class="btn btn-primary" type="submit" (click)="login()">Login</button>
-            </div>
+
+
+
+  <section id="main">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+                <app-admin-side-bar *ngIf="isLoggedIn && userRole=='Admin'"></app-admin-side-bar>
+                <app-side-bar *ngIf="isLoggedIn && userRole=='User'"></app-side-bar>
+               
         </div>
-    </div>
-</form> -->
+        <div class="col-md-7">
+               
+          <router-outlet></router-outlet>
+        </div>
+        <div class="col-md-3">
+          <app-status *ngIf="isLoggedIn && userRole=='User'"></app-status>
+          <app-admin-pending *ngIf="isLoggedIn && userRole=='Admin'"></app-admin-pending>
+        </div>
+      </div>
+    </div>    
+  </section>
 
 
-<app-user ></app-user>
-<app-admin></app-admin>
-<app-footer *ngIf="isLoggedIn"></app-footer>
+<!-- <app-user ></app-user>
+<app-admin></app-admin> -->
+<app-footer *ngIf="isLoggedIn && (userRole=='User'||userRole=='Admin')"></app-footer>

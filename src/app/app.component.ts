@@ -1,25 +1,50 @@
 import { Component } from '@angular/core';
+import { LoginService } from './Services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'leave';
-
-  isLoggedIn:boolean=false;
-  username:string;
-  password:string;
+  constructor(
+    private loginService:LoginService,
+    private router:Router
+  ){}
   userRole:string;
+  isLoggedIn:boolean=false;
+  userData:any;
 
-  login(){
-    if(this.username=="admin"&&this.password!=""){
-      this.userRole="admin";
+  login(loginStatus:string){
+   
+    if(loginStatus=="true"){
       this.isLoggedIn=true;
-    }else if(this.username=="e"&&this.password!=""){
-      this.userRole="emp";
-      this.isLoggedIn=true;
-    }
+      
+      
+  }else{
+    
+    this.router.navigate(['/login']);
   }
+
+
+}
+  
+
+  ngOnInit() {
+    this.loginService.loginCredential$.subscribe(data => {
+      if (data != null && data !== 'error') {
+        this.isLoggedIn = true;
+        this.userData = data;
+        this.userRole=this.userData.userRole;
+        if(this.userRole=="Admin"){
+          this.router.navigate(['/pendingLeave']);
+        }else if(this.userRole=="User"){
+          this.router.navigate(['/leaveApply']);
+        }
+      }
+    });
+  }
+    
 }

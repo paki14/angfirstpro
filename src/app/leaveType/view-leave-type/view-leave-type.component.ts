@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplyLeave } from 'src/app/models/apply-leave.models';
 import { ApplyLeaveService } from 'src/app/Services/apply-leave.service';
-import { Alert } from 'selenium-webdriver';
 import { LeaveTypeService } from 'src/app/Services/leave-type.service';
 import { LeaveType } from 'src/app/models/leave-type.model';
 import { StatusServiceService } from 'src/app/Services/status-service.service';
 import { Status } from 'src/app/models/status.model';
+import { concat } from 'rxjs';
 
 @Component({
   selector: 'app-view-leave-type',
@@ -28,6 +28,7 @@ export class ViewLeaveTypeComponent implements OnInit {
   viewLeaves:ApplyLeave[];
   leaveTypes:LeaveType[];
   statuses:Status[];
+
  
   // angularmerge= viewLeaves.concat(leaveTypes);
 
@@ -35,7 +36,7 @@ export class ViewLeaveTypeComponent implements OnInit {
     return this.viewLeaveService.getAllLeaves().subscribe(asd=>{
       this.viewLeaves=asd;
       console.log(asd);
-      alert("test");
+      // alert("test");
     })
   }
   getLeaveType(){
@@ -53,7 +54,7 @@ export class ViewLeaveTypeComponent implements OnInit {
     })
   }
   viewLeaveId(id){
-    alert("id");
+    // alert("id");
     this.viewLeaveObj=Object.assign({},id);
     // console.log(this.viewLeaveObj);
   }
