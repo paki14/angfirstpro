@@ -3,7 +3,7 @@
 <div class="panel panel-default">
 
   <div class="card">
-{{ applyLeaveObj | json}}
+<!-- {{ applyLeaveObj | json}} -->
     <div class="card-header">Apply Leave Request</div>
     <div class="card-body">
       <form id="newLeaveRequest">
@@ -64,7 +64,11 @@
               <label class="control-label col-sm-6" for="email">Reason:</label>
               <div class="col-sm-12">
                 <textarea class="form-control" id="LeaveReason" placeholder="Enter Reason" name="LeaveReason"
+<<<<<<< HEAD
                   [(ngModel)]="applyLeaveObj.reason" ></textarea>
+=======
+                  [(ngModel)]="applyLeaveObj.reason" (click)="onSubmit()"></textarea>
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
               </div>
             </div>
           </div>
@@ -73,13 +77,21 @@
               <label class="control-label " for="email">Leave Days:</label>
               <div class="col-sm-12">
                 <input type="data" class="form-control" id="LeaveReason" placeholder="" name="Leaveday"
+<<<<<<< HEAD
                   [(ngModel)]="applyLeaveObj.leaveDays" >
+=======
+                  [(ngModel)]="applyLeaveObj.leaveDays" readonly>
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
               </div>
             </div>
           </div>
         </div>
         <div class="button">
+<<<<<<< HEAD
           <button type="button" class="btn btn-primary" (click)="applyLeaveRequest()">Apply</button>
+=======
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#apply" (click)=" applyLeave()">Apply</button>
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
         </div>
         <!-- <input type="submit" value="Add Leave Request"> -->
       </form>

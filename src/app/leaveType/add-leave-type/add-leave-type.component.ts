@@ -7,8 +7,11 @@ import { ApplyLeaveService } from 'src/app/Services/apply-leave.service';
 import { LeaveType } from 'src/app/models/leave-type.model';
 import { StatusServiceService } from 'src/app/Services/status-service.service';
 import { Status } from 'src/app/models/status.model';
+<<<<<<< HEAD
 import { LoginService } from 'src/app/Services/login.service';
 import { UserStatusService } from 'src/app/Services/user-status.service';
+=======
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 
 @Component({
   selector: 'app-add-leave-type',
@@ -28,6 +31,7 @@ export class AddLeaveTypeComponent implements OnInit {
   leaveTId: number;
   raDay: number
 
+<<<<<<< HEAD
 
   constructor(
     private applyLeaveService: ApplyLeaveService,
@@ -92,6 +96,47 @@ export class AddLeaveTypeComponent implements OnInit {
     }
   });
 }
+=======
+  applyLeaveObj:ApplyLeave=new ApplyLeave();
+  applyLeaves:ApplyLeave[];
+  status:Status[];
+
+
+  constructor(
+    private applyLeaveService:ApplyLeaveService,
+    private leaveService:LeaveTypeService,
+    private statusService:StatusServiceService
+    ){}
+
+  ngOnInit() {
+    this.viewLeaveType();
+
+  }
+  onSubmit(){
+    var startDate = new Date(this.applyLeaveObj.startDate);
+    var endDate = new Date(this.applyLeaveObj.endDate);
+
+    var leDays = Math.abs(endDate.getDate()-startDate.getDate());
+    console.log(leDays);
+
+    
+  }
+
+  applyLeave(){
+    //  this.applyLeaveObj.startDate=new Date(this.applyLeaveObj.startDate);
+    // console.log(this.applyLeaveObj.startDate);
+     // this.applyLeaveObj.endDate=new Date(this.applyLeaveObj.endDate);
+    // this.applyLeaveObj.statusId=17;
+    // console.log(this.applyLeaveObj);
+   
+    
+  }
+  addStatus(){
+    this.statusService.getAllStatus().subscribe(lt=>{
+      this.status=lt;
+    })
+  }
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 
   applyLeaveRequest(){
     alert("leave Applied");

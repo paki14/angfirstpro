@@ -11,9 +11,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor(
     private loginService:LoginService,
     private router:Router) { }
+=======
+  constructor(private loginService:LoginService) { }
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 
   ngOnInit() {
   }
@@ -36,11 +40,18 @@ export class LoginComponent implements OnInit {
     //   this.loginMsg =true;
     // }
     if(this.username!="" &&this.password!=""){
+<<<<<<< HEAD
       
       this.loginObj.password=this.password;
       this.loginObj.userName=this.username;
       this.loginService.getLoginAuth(this.loginObj);
       this.loginService.loginCredential$.subscribe(
+=======
+      this.loginObj.password=this.password;
+      this.loginObj.userName=this.username;
+    this.loginService.getLoginAuth(this.loginObj);
+    this.loginService.loginCredential$.subscribe(
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
       data=>{
      
           if(data!="error"){
