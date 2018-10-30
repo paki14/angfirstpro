@@ -1,35 +1,15 @@
 <br>
 <app-top-bar *ngIf="isLoggedIn && (userRole=='User'||userRole=='Admin')"></app-top-bar><br>
 <!-- <app-login></app-login> -->
-<<<<<<< HEAD
-<<<<<<< HEAD
 <!-- <app-user *ngIf="isLoggedIn && userRole=='User'"></app-user> -->
 <!-- <app-admin *ngIf="isLoggedIn && userRole=='Admin'"></app-admin> -->
 <!-- <app-login *ngIf="!isLoggedIn && userRole!=''" (loginEvent)="login($event)" ></app-login> -->
-=======
-<app-user *ngIf="isLoggedIn && userRole=='User'"></app-user>
-<app-admin *ngIf="isLoggedIn && userRole=='Admin'"></app-admin>
-<app-login *ngIf="!isLoggedIn && userRole!=''" (loginEvent)="login($event)" ></app-login>
->>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
-=======
-<app-user *ngIf="isLoggedIn && userRole=='User'"></app-user>
-<app-admin *ngIf="isLoggedIn && userRole=='Admin'"></app-admin>
-<app-login *ngIf="!isLoggedIn && userRole!=''" (loginEvent)="login($event)" ></app-login>
->>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 
 
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   <section id="main">
-=======
-  <section id="main" *ngIf="isLoggedIn">
->>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
-=======
-  <section id="main" *ngIf="isLoggedIn">
->>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-2">
@@ -52,12 +32,4 @@
 
 <!-- <app-user ></app-user>
 <app-admin></app-admin> -->
-<<<<<<< HEAD
-<<<<<<< HEAD
 <app-footer *ngIf="isLoggedIn && (userRole=='User'||userRole=='Admin')"></app-footer>
-=======
-<app-footer *ngIf="isLoggedIn && (userRole=='User'||userRole=='Admin')"></app-footer>
->>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
-=======
-<app-footer *ngIf="isLoggedIn && (userRole=='User'||userRole=='Admin')"></app-footer>
->>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
