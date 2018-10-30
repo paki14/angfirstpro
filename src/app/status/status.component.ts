@@ -29,17 +29,23 @@ export class StatusComponent implements OnInit {
     this.loginService.loginCredential$.subscribe(data=>{
       this.userId=data.userId;
 <<<<<<< HEAD
+<<<<<<< HEAD
       // console.log(this.userId);
     });
     this.userStatusService.getStatusRemainDays(this.userId).subscribe(us=>{
       this.leave=us;
       // console.log(us);
 =======
+=======
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
       console.log(this.userId);
     });
     this.userStatusService.getStatusRemainDays(this.userId).subscribe(us=>{
       this.leave=us;
       console.log(us);
+<<<<<<< HEAD
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
+=======
 >>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
     })
     

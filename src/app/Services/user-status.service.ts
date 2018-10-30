@@ -23,9 +23,12 @@ export class UserStatusService {
       return this.httpObj.get<UserStatus[]>(this.leaveTypeUrl+"/"+user);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     getRemainingDayByUserId(user,leave){
       return this.httpObj.get<UserStatus>(this.leaveTypeUrl+"/"+user+"/"+leave)
     }
+=======
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 =======
 >>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 

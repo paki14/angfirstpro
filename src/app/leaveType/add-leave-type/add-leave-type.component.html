@@ -65,7 +65,11 @@
               <div class="col-sm-12">
                 <textarea class="form-control" id="LeaveReason" placeholder="Enter Reason" name="LeaveReason"
 <<<<<<< HEAD
+<<<<<<< HEAD
                   [(ngModel)]="applyLeaveObj.reason" ></textarea>
+=======
+                  [(ngModel)]="applyLeaveObj.reason" (click)="onSubmit()"></textarea>
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 =======
                   [(ngModel)]="applyLeaveObj.reason" (click)="onSubmit()"></textarea>
 >>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
@@ -78,7 +82,11 @@
               <div class="col-sm-12">
                 <input type="data" class="form-control" id="LeaveReason" placeholder="" name="Leaveday"
 <<<<<<< HEAD
+<<<<<<< HEAD
                   [(ngModel)]="applyLeaveObj.leaveDays" >
+=======
+                  [(ngModel)]="applyLeaveObj.leaveDays" readonly>
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 =======
                   [(ngModel)]="applyLeaveObj.leaveDays" readonly>
 >>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
@@ -88,7 +96,11 @@
         </div>
         <div class="button">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <button type="button" class="btn btn-primary" (click)="applyLeaveRequest()">Apply</button>
+=======
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#apply" (click)=" applyLeave()">Apply</button>
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 =======
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#apply" (click)=" applyLeave()">Apply</button>
 >>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4

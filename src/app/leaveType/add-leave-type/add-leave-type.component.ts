@@ -8,8 +8,11 @@ import { LeaveType } from 'src/app/models/leave-type.model';
 import { StatusServiceService } from 'src/app/Services/status-service.service';
 import { Status } from 'src/app/models/status.model';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { LoginService } from 'src/app/Services/login.service';
 import { UserStatusService } from 'src/app/Services/user-status.service';
+=======
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 =======
 >>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 
@@ -136,6 +139,9 @@ export class AddLeaveTypeComponent implements OnInit {
       this.status=lt;
     })
   }
+<<<<<<< HEAD
+>>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
+=======
 >>>>>>> b5a4986d776a144936f7064bc89854ac27a601f4
 
   applyLeaveRequest(){
