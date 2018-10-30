@@ -3,31 +3,31 @@
 <div class="panel panel-default">
 
   <div class="card">
-{{ applyLeaveObj | json}}
+<!-- {{ applyLeaveObj | json}} -->
     <div class="card-header">Apply Leave Request</div>
     <div class="card-body">
       <form id="newLeaveRequest">
         <div class="row">
 
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <div class="form-group">
               <label class="control-label col-sm-6" for="email">User Id:</label>
               <div class="col-sm-12">
                 <input type="email" class="form-control" id="email" placeholder="User Id" name="id" [(ngModel)]="applyLeaveObj.userId" >
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="col-md-6">
             <div class="form-group">
               <label class="control-label col-sm-6" for="email">Leave Type :</label>
-              <!-- <div class="col-sm-12">
+              <div class="col-sm-12">
                 <select _ngcontent-c5="" class="form-control form-control-sm" name="xyz" [(ngModel)]="applyLeaveObj.leaveTypeId">
                   <option _ngcontent-c5="" selected="" *ngFor="let lts of leaveTypes" value="{{lts.id}}" (click)="getLeaveRequestId()" >
                     {{lts.leaveType}}</option>
                 </select>
-              </div> -->
-              <input type="text" class="form-control" id="leaveType" placeholder="Leave Typeas" name="leaveType"
-                  [(ngModel)]="applyLeaveObj.leaveTypeId">
+              </div>
+              <!-- <input type="text" class="form-control" id="leaveType" placeholder="Leave Typeas" name="leaveType"
+                  [(ngModel)]="applyLeaveObj.leaveTypeId"> -->
             </div>
 
           </div>
@@ -68,7 +68,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3">
+          <!-- <div class="col-md-3">
             <div class="form-group">
               <label class="control-label " for="email">Leave Days:</label>
               <div class="col-sm-12">
@@ -76,7 +76,7 @@
                   [(ngModel)]="applyLeaveObj.leaveDays" >
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="button">
           <button type="button" class="btn btn-primary" (click)="applyLeaveRequest()">Apply</button>

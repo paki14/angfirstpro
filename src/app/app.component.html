@@ -1,9 +1,9 @@
 <br>
 <app-top-bar *ngIf="isLoggedIn && (userRole=='User'||userRole=='Admin')"></app-top-bar><br>
 <!-- <app-login></app-login> -->
-<!-- <app-user *ngIf="isLoggedIn && userRole=='User'"></app-user> -->
+<app-user *ngIf="isLoggedIn && userRole=='User'"></app-user>
 <!-- <app-admin *ngIf="isLoggedIn && userRole=='Admin'"></app-admin> -->
-<!-- <app-login *ngIf="!isLoggedIn && userRole!=''" (loginEvent)="login($event)" ></app-login> -->
+<app-login *ngIf="!isLoggedIn && userRole!=''" (loginEvent)="login($event)" ></app-login>
 
 
 

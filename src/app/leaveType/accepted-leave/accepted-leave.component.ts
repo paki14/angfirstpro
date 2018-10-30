@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplyLeave } from 'src/app/models/apply-leave.models';
 import { ApplyLeaveService } from 'src/app/Services/apply-leave.service';
 import { LeaveTypeService } from 'src/app/Services/leave-type.service';
-import { LeaveType } from 'src/app/models/leave-type.model';
 import { StatusServiceService } from 'src/app/Services/status-service.service';
-import { Status } from 'src/app/models/status.model';
-import { concat } from 'rxjs';
 import { LoginService } from 'src/app/Services/login.service';
+import { ApplyLeave } from 'src/app/models/apply-leave.models';
+import { LeaveType } from 'src/app/models/leave-type.model';
+import { Status } from 'src/app/models/status.model';
 
 @Component({
-  selector: 'app-view-leave-type',
-  templateUrl: './view-leave-type.component.html',
-  styleUrls: ['./view-leave-type.component.css']
+  selector: 'app-accepted-leave',
+  templateUrl: './accepted-leave.component.html',
+  styleUrls: ['./accepted-leave.component.css']
 })
-export class ViewLeaveTypeComponent implements OnInit {
+export class AcceptedLeaveComponent implements OnInit {
 
-  constructor(
+   constructor(
     private viewLeaveService:ApplyLeaveService,
     private leaveTypeService:LeaveTypeService,
     private statusService:StatusServiceService,
@@ -78,6 +77,5 @@ export class ViewLeaveTypeComponent implements OnInit {
       this.statuses=sta;
     })
   }
-
 
 }

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-  title = 'leave';
+  title = 'Leave Management System';
   constructor(
     private loginService:LoginService,
     private router:Router
@@ -19,14 +19,24 @@ export class AppComponent  {
 
   login(loginStatus:string){
    
-    if(loginStatus=="true"){
+    if(loginStatus=="admin"){
       this.isLoggedIn=true;
-      
-      
-  }else{
+      this.userRole="admin";
+    }else if(loginStatus=="emp"){
     
-    this.router.navigate(['/login']);
-  }
+      this.isLoggedIn=true;
+      this.userRole="emp";
+    }else{
+      this.isLoggedIn=false;
+    }
+      
+    this.loginService.loginCredential$.subscribe(data => {
+      if (data != null && data !== 'error') {
+        this.isLoggedIn = true;
+        this.userData = data;
+        this.userRole=this.userData.userRole;
+      }
+  });
 
 
 }
@@ -37,12 +47,12 @@ export class AppComponent  {
       if (data != null && data !== 'error') {
         this.isLoggedIn = true;
         this.userData = data;
-        this.userRole=this.userData.userRole;
-        if(this.userRole=="Admin"){
-          this.router.navigate(['/pendingLeave']);
-        }else if(this.userRole=="User"){
-          this.router.navigate(['/leaveApply']);
-        }
+        // this.userRole=this.userData.userRole;
+        // if(this.userRole=="Admin"){
+        //   this.router.navigate(['/pendingLeave']);
+        // }else if(this.userRole=="User"){
+        //   this.router.navigate(['/leaveApply']);
+        // }
       }
     });
   }

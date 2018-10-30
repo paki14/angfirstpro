@@ -34,6 +34,13 @@ export class ApplyLeaveService {
     return this.httpObj.post<ApplyLeave>(this.applyUrl, leaveRequest);
   }
 
+  public approvedLeaveRequest(processLeaveRequest) {
+    return this.httpObj.post<ApplyLeave>(this.applyUrl + "/leaveapprove", processLeaveRequest);
+  }
+
+  public rejectLeaveRequest(processLeaveRequest) {
+    return this.httpObj.post<ApplyLeave>(this.applyUrl + "/rejectleave", processLeaveRequest);
+  }
 
   deleteViewLeave(num){
     return this.httpObj.delete<ApplyLeave>(this.applyUrl+"/deleteRequest"+"/"+num.id);

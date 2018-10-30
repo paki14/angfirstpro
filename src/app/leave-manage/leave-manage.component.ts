@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 
 import { ApplyLeaveService } from '../Services/apply-leave.service';
 import { ApplyLeave } from 'src/app/models/apply-leave.models';
+import { LoginService } from '../Services/login.service';
+import { LeaveManage } from '../models/leave-manage.model';
 
 @Component({
   selector: 'app-leave-manage',
@@ -11,27 +13,57 @@ import { ApplyLeave } from 'src/app/models/apply-leave.models';
 })
 export class LeaveManageComponent implements OnInit {
 
-  constructor(
-     private httpObj:HttpClient,
-     private leaveRequestService:ApplyLeaveService
-    ) { }
-  leaveRequests:ApplyLeave[];
-  ngOnInit() {
-    // this.fetchdate();
-    this.getAllLeaveRequest();
+  leaveRequests: ApplyLeave[];
+  leaveRequestManageObj = new LeaveManage();
+  firstName: string;
+  lastName: string;
 
+  constructor(private loginService:LoginService,
+     private leaveRequestService: ApplyLeaveService, 
+     ) { }
+
+  ngOnInit() {
+    this.getAllLeaveRequest();
   }
-  // fetchdate=function(){
-  //   this.httpObj.get("http://localhost:8080/hrm_system/leaverequest").subscribe(res=>{
-  //     console.log(res);
-  //     this.leaveRequests=res;
-  //   })
-  // }
-  getAllLeaveRequest(){
-    return this.leaveRequestService.getAllLeaves().subscribe(ltr=>{
-      this.leaveRequests=ltr;
-      console.log(this.leaveRequests);
-    })
+
+  getAllLeaveRequest() {
+    this.leaveRequestService.getAllLeaves()
+      .subscribe(data => {
+        this.leaveRequests = data;
+        console.log(data);
+      });
   }
+
+  approveLeave(lvRequestId) {
+    this.leaveRequestManageObj.leaveRequestId = lvRequestId;
+    this.leaveRequestManageObj.processedBy = 2;
+    this.leaveRequestManageObj.statusId = 1;
+    this.leaveRequestManageObj.rejectreason = null;
+    // console.log(this.leaveRequestManageObj);
+    this.leaveRequestService.approvedLeaveRequest(this.leaveRequestManageObj).subscribe(data => {
+      
+      this.getAllLeaveRequest();
+    });
+  }
+
+  getLeaveRejectId(lvRequestId) {
+    this.leaveRequestManageObj.leaveRequestId = lvRequestId;
+    this.leaveRequestManageObj.processedBy = 1;
+    this.leaveRequestManageObj.statusId = 2;
+    // this.leaveRequestManageObj.rejectreason=null;
+    console.log(this.leaveRequestManageObj);
+  }
+
+  rejectLeave() {
+    console.log(this.leaveRequestManageObj);
+    this.leaveRequestService.rejectLeaveRequest(this.leaveRequestManageObj).subscribe(
+      data => {
+        
+        this.getAllLeaveRequest();
+      }
+    );
+  }
+
+ 
 
 }

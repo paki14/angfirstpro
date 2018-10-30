@@ -37,6 +37,8 @@ import { InteractionService } from './Interaction/interaction.service';
 import { UserStatusService } from './Services/user-status.service';
 import { LoginService } from './Services/login.service';
 import { LogSideBarComponent } from './log-side-bar/log-side-bar.component';
+import { RejectedLeavesComponent } from './leaveType/rejected-leaves/rejected-leaves.component';
+import { AcceptedLeaveComponent } from './leaveType/accepted-leave/accepted-leave.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,9 @@ import { LogSideBarComponent } from './log-side-bar/log-side-bar.component';
     PrivilageComponent,
     LoginComponent,
     AdminPendingComponent,
-    LogSideBarComponent
+    LogSideBarComponent,
+    RejectedLeavesComponent,
+    AcceptedLeaveComponent
   ],
   imports: [
     BrowserModule,

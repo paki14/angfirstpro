@@ -15,6 +15,8 @@ import { LeaveManageComponent } from './leave-manage/leave-manage.component';
 import { ViewLeaveTypeComponent } from './leaveType/view-leave-type/view-leave-type.component';
 import { AddLeaveTypeComponent } from './leaveType/add-leave-type/add-leave-type.component';
 import { LoginComponent } from './login/login.component';
+import { RejectedLeavesComponent } from './leaveType/rejected-leaves/rejected-leaves.component';
+import { AcceptedLeaveComponent } from './leaveType/accepted-leave/accepted-leave.component';
 
 const routs:Routes=[
   {path:'user',component:AdminViewUserComponent},
@@ -29,8 +31,12 @@ const routs:Routes=[
   {path:'pendingLeave',component:ViewLeaveTypeComponent},
   {path:'leaveApply',component:AddLeaveTypeComponent},
   {path:'login',component: LoginComponent },
- 
+  {path:'rejectedLeave',component: RejectedLeavesComponent },
+  {path:'acceptedLeave',component: AcceptedLeaveComponent },  
+  {path:'leaveHistory',component: AdminComponent },
 
+ 
+  
   
   
 

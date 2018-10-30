@@ -94,19 +94,27 @@ export class AddLeaveTypeComponent implements OnInit {
 }
 
   applyLeaveRequest(){
-    alert("leave Applied");
+    // alert("leave Applied");
     this.applyLeaveObj.startDate = new Date(this.applyLeaveObj.startDate);
     this.applyLeaveObj.endDate= new Date(this.applyLeaveObj.endDate);
-    this.applyLeaveObj.leaveTypeId = 1;
+    // this.applyLeaveObj.leaveTypeId = 1;
+    this.applyLeaveObj.userId=this.userId;
     console.log(this.applyLeaveObj);
-    this.applyLeaveObj.statusId = 1;
+    this.applyLeaveObj.statusId = 3;
+
+    var startDate = new Date(this.applyLeaveObj.startDate);
+    var endDate = new Date(this.applyLeaveObj.endDate);
+
+    var leDays = Math.abs(endDate.getDate()-startDate.getDate());
+    console.log(leDays);
+    this.applyLeaveObj.leaveDays=leDays;
 
     this.applyLeaveService.applyLeave(this.applyLeaveObj).subscribe(data => {
       alert("leave Applied");
       console.log(data);
       this.applyLeaveObj = data;
       // this.applyLeaveObj.leaveTypeId=2;
-      this.applyLeaveObj.userId=data.userId;
+      // this.applyLeaveObj.userId=data.userId;
       
     },
     error=>{

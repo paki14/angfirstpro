@@ -15,7 +15,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let vlt of viewLeaves ">
+            <ng-container *ngFor="let vlt of viewLeaves">          
+          <tr *ngIf="vlt.statusId.id===3 ">
+
             <td>{{vlt.id}}</td>
             <td>{{vlt.leaveTypeId.leaveType}}</td>
             <td>{{vlt.startDate | date:"yyyy-MM-dd"}}</td>
@@ -23,6 +25,7 @@
             <td>{{vlt.leaveDays}}</td>
             <td>{{vlt.reason}}</td>
             <td>{{vlt.statusId.status}}</td>
+            </ng-container>
         </tbody>
       </table>
     </div>
