@@ -60,15 +60,8 @@
                   <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Cancel</button> -->
   
                 </div>
-  
-              </td>
-              
-            </tr>
-            
-          </ng-container>
-          </tbody>
-        </table>
-        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -86,11 +79,20 @@
             </div>
             <div class="modal-footer">
               <button type="button" id="btn-send-reject-pending-request" class="btn btn-primary  btn-lg" data-toggle="modal"
-                data-dismiss="modal" (click)="rejectLeave()">Send</button>
+                data-dismiss="modal" (click)="rejectLeave(leaveRQ.id)">Send</button>
             </div>
           </div>
         </div>
       </div>
+  
+              </td>
+              
+            </tr>
+            
+          </ng-container>
+          </tbody>
+        </table>
+        
 
       
   

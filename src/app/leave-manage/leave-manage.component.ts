@@ -50,7 +50,7 @@ export class LeaveManageComponent implements OnInit {
     this.leaveRequestManageObj.leaveRequestId = lvRequestId;
     this.leaveRequestManageObj.processedBy = 1;
     this.leaveRequestManageObj.statusId = 2;
-    // this.leaveRequestManageObj.rejectreason=null;
+    this.leaveRequestManageObj.rejectreason=null;
     console.log(this.leaveRequestManageObj);
   }
 
@@ -59,7 +59,7 @@ export class LeaveManageComponent implements OnInit {
     this.leaveRequestManageObj.leaveRequestId = lvRequestId;
     this.leaveRequestManageObj.processedBy = 2;
     this.leaveRequestManageObj.statusId = 2;
-    this.leaveRequestManageObj.rejectreason = null;
+    this.leaveRequestManageObj.rejectreason = this.leaveRequestManageObj.rejectreason;
     this.leaveRequestService.rejectLeaveRequest(this.leaveRequestManageObj).subscribe(
       data => {
         

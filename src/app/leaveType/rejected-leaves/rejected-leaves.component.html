@@ -2,10 +2,11 @@
     <div class="card">
       <div class="card-header active main-color-bg">Leave History</div>
       <div class="card-body">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="MyTable">
           <thead>
             <tr>
               <th>Id</th>
+              <th>User Id</th>
               <th>Leave Type</th>
               <th>Starting date</th>
               <th>Ending date</th>
@@ -16,9 +17,10 @@
           </thead>
           <tbody>
               <ng-container *ngFor="let vlt of viewLeaves">          
-            <tr *ngIf="vlt.statusId.id===2 ">
+            <tr *ngIf="vlt.statusId.id===2  ">
   
               <td>{{vlt.id}}</td>
+              <td>{{vlt.userId.id}}</td>
               <td>{{vlt.leaveTypeId.leaveType}}</td>
               <td>{{vlt.startDate | date:"yyyy-MM-dd"}}</td>
               <td>{{vlt.endDate | date:"yyyy-MM-dd"}}</td>

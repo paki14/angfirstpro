@@ -23,12 +23,14 @@ export class RejectedLeavesComponent implements OnInit {
 
   ngOnInit() {
     this.getViewLeave();
+    // this.getEaveRequestByUser()
   }
   viewLeaveObj:ApplyLeave=new ApplyLeave();
   viewLeaves:ApplyLeave[];
   leaveTypes:LeaveType[];
   statuses:Status[];
   userId:number;
+  cou:number;
 
 
   getUserId() {
@@ -44,13 +46,24 @@ export class RejectedLeavesComponent implements OnInit {
   // angularmerge= viewLeaves.concat(leaveTypes);
 
   getViewLeave(){
+
     // this.viewLeaveObj.userId=this.userId; 
     return this.viewLeaveService.getAllLeaves().subscribe(asd=>{
       this.viewLeaves=asd;
+      var oRows = document.getElementById('MyTable').getElementsByTagName('tr');
+      this.cou = oRows.length;
+      console.log(this.cou);
       console.log(asd);
       // alert("test");
     })
   }
+  // getEaveRequestByUser(){
+  //   return this.viewLeaveService.getLeaveHistoryByUserId(this.userId).subscribe(data=>{
+  //     this.viewLeaves=data;
+  //     console.log(data)
+
+  //   })
+  // }
   getLeaveType(){
     return this.leaveTypeService.getAllLeaveType().subscribe(del=>{
       this.leaveTypes=del;

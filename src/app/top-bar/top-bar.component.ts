@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from 'angfirstpro/angfirstpro/src/app/Services/login.service';
+import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -16,6 +16,7 @@ export class TopBarComponent implements OnInit {
   ) { }
 userName:string;
   ngOnInit() {
+    this.getUserName();
   }
 
   logout(){
