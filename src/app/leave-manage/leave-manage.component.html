@@ -29,9 +29,29 @@
               <td>{{leaveRQ.endDate | date:"yyyy-MM-dd"}}</td>
               <td>{{leaveRQ.reason}}</td>
               <td>{{leaveRQ.leaveDays}}</td>
-              <td>{{leaveRQ.statusId.status}}</td>
+              <!-- <td>{{leaveRQ.statusId.status}}</td> -->
               <td>
-                <button type="button" class="btn btn-warning " (click)="approveLeave(leaveRQ.id)">Accept</button>
+                <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#myModal3" >Accept</button>
+                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header model-header-primary">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Are You Accept</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" id="btn-send-reject-pending-request" class="btn btn-primary  btn-lg" data-toggle="modal"
+              data-dismiss="modal" (click)="approveLeave(leaveRQ.id)">Yes</button>
+              <button type="button" id="btn-send-reject-pending-request" class="btn btn-primary  btn-lg" data-toggle="modal"
+              data-dismiss="modal" >No</button>
+          </div>
+        </div>
+      </div>
+    </div>
               </td>
               <td>
                 <div class="alli">
@@ -71,6 +91,8 @@
           </div>
         </div>
       </div>
+
+      
   
   
       </div>

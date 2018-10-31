@@ -18,8 +18,9 @@
                
         </div>
         <div class="col-md-7">
-               
-          <router-outlet></router-outlet>
+               <app-leave-manage *ngIf="isLoggedIn && userRole=='Admin'"></app-leave-manage>
+               <app-add-leave-type *ngIf="isLoggedIn && userRole=='User'"></app-add-leave-type>
+               <router-outlet *ngIf="isLoggedIn"></router-outlet>
         </div>
         <div class="col-md-3">
           <app-status *ngIf="isLoggedIn && userRole=='User'"></app-status>

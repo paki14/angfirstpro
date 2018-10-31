@@ -6,6 +6,7 @@
               <thead>
                 <tr>
                   <th>Id</th>
+                  <th>User Name</th>
                   <th>Leave Type</th>
                   <th>Starting date</th>
                   <th>Ending date</th>
@@ -19,6 +20,7 @@
                 <tr *ngIf="vlt.statusId.id!=3 ">
       
                   <td>{{vlt.id}}</td>
+                  <td>{{vlt.userId.userName}}</td>
                   <td>{{vlt.leaveTypeId.leaveType}}</td>
                   <td>{{vlt.startDate | date:"yyyy-MM-dd"}}</td>
                   <td>{{vlt.endDate | date:"yyyy-MM-dd"}}</td>

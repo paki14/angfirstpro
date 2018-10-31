@@ -53,7 +53,7 @@
               <label class="control-label col-sm-6" for="email">End Date:</label>
               <div class="col-sm-12">
                 <input type="date" class="form-control" id="leaveEndingDate" placeholder="End Date" name="leaveEndingDate"
-                  [(ngModel)]="applyLeaveObj.endDate">
+                  [(ngModel)]="applyLeaveObj.endDate" >
               </div>
             </div>
           </div>
@@ -64,25 +64,39 @@
               <label class="control-label col-sm-6" for="email">Reason:</label>
               <div class="col-sm-12">
                 <textarea class="form-control" id="LeaveReason" placeholder="Enter Reason" name="LeaveReason"
-                  [(ngModel)]="applyLeaveObj.reason" ></textarea>
+                  [(ngModel)]="applyLeaveObj.reason" (click)="calculateleaveDay()"></textarea>
               </div>
             </div>
           </div>
-          <!-- <div class="col-md-3">
+          <div class="col-md-3">
             <div class="form-group">
               <label class="control-label " for="email">Leave Days:</label>
               <div class="col-sm-12">
                 <input type="data" class="form-control" id="LeaveReason" placeholder="" name="Leaveday"
-                  [(ngModel)]="applyLeaveObj.leaveDays" >
+                  [(ngModel)]="applyLeaveObj.leaveDays" readonly>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
         <div class="button">
-          <button type="button" class="btn btn-primary" (click)="applyLeaveRequest()">Apply</button>
+          <button type="button" class="btn btn-primary" (click)="clear()" >Reset</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" (click)="applyLeaveRequest()" data-toggle="modal" data-target="#apply">Apply</button>
+          
         </div>
         <!-- <input type="submit" value="Add Leave Request"> -->
       </form>
     </div>
+  </div>
+</div>
+
+<div class="modal fade" id="apply" role="dialog">
+  <div class="modal-content">
+      <div class="col-md-4 col-md-offset-4">
+              <div class="alert alert-success" role="alert">
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                     !  Successfully Leave Added
+                  </div>
+      </div>       
   </div>
 </div>
