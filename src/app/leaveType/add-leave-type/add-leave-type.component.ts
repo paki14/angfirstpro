@@ -41,7 +41,7 @@ export class AddLeaveTypeComponent implements OnInit {
     this.viewLeaveType();
     this.getUserId();
     this.getLeaveRequestId();
-    this.getRemainingDay();
+    // this.getRemainingDay();
 
 
   }
@@ -83,8 +83,8 @@ export class AddLeaveTypeComponent implements OnInit {
       }
         
   getRemainingDay(){
-    this.getUserId();
-    this.getLeaveRequestId();
+    this.applyLeaveObj.userId=this.userId;
+    this.applyLeaveObj.leaveTypeId=this.leaveTId
     this.userStatusService.getRemainingDayByUserId(this.userId, this.leaveTId).subscribe(dat => {
       if (dat != null) {
         this.raDay = dat.remainingDays;
@@ -111,12 +111,12 @@ calculateleaveDay(){
     console.log(this.applyLeaveObj);
     this.applyLeaveObj.statusId = 3;
 
-    var startDate = new Date(this.applyLeaveObj.startDate);
-    var endDate = new Date(this.applyLeaveObj.endDate);
+    // var startDate = new Date(this.applyLeaveObj.startDate);
+    // var endDate = new Date(this.applyLeaveObj.endDate);
 
-    var leDays = Math.abs(endDate.getDate()-startDate.getDate());
-    console.log(leDays);
-    this.applyLeaveObj.leaveDays=leDays +1;
+    // var leDays = Math.abs(endDate.getDate()-startDate.getDate());
+    // console.log(leDays);
+    this.applyLeaveObj.leaveDays=this.applyLeaveObj.leaveDays;
 
     this.applyLeaveService.applyLeave(this.applyLeaveObj).subscribe(data => {
       // alert("leave Applied");
@@ -138,6 +138,7 @@ calculateleaveDay(){
     this.applyLeaveObj.startDate = null;
     this.applyLeaveObj.endDate = null;
     this.applyLeaveObj.reason = null;
+    this.applyLeaveObj.leaveDays=null;
 
   }
 

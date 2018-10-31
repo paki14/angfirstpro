@@ -54,8 +54,12 @@ export class LeaveManageComponent implements OnInit {
     console.log(this.leaveRequestManageObj);
   }
 
-  rejectLeave() {
+  rejectLeave(lvRequestId) {
     console.log(this.leaveRequestManageObj);
+    this.leaveRequestManageObj.leaveRequestId = lvRequestId;
+    this.leaveRequestManageObj.processedBy = 2;
+    this.leaveRequestManageObj.statusId = 2;
+    this.leaveRequestManageObj.rejectreason = null;
     this.leaveRequestService.rejectLeaveRequest(this.leaveRequestManageObj).subscribe(
       data => {
         

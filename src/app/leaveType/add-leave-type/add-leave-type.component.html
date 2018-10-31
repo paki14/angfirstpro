@@ -53,7 +53,7 @@
               <label class="control-label col-sm-6" for="email">End Date:</label>
               <div class="col-sm-12">
                 <input type="date" class="form-control" id="leaveEndingDate" placeholder="End Date" name="leaveEndingDate"
-                  [(ngModel)]="applyLeaveObj.endDate" >
+                  [(ngModel)]="applyLeaveObj.endDate" (change)="calculateleaveDay()">
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@
               <label class="control-label col-sm-6" for="email">Reason:</label>
               <div class="col-sm-12">
                 <textarea class="form-control" id="LeaveReason" placeholder="Enter Reason" name="LeaveReason"
-                  [(ngModel)]="applyLeaveObj.reason" (click)="calculateleaveDay()"></textarea>
+                  [(ngModel)]="applyLeaveObj.reason" ></textarea>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
         </div>
         <div class="button">
           <button type="button" class="btn btn-primary" (click)="clear()" >Reset</button>&nbsp;&nbsp;
-          <button type="button" class="btn btn-primary" (click)="applyLeaveRequest()" data-toggle="modal" data-target="#apply">Apply</button>
+          <button type="button" class="btn btn-primary" (click)="applyLeaveRequest()" data-toggle="modal" data-target="#apply" (change)="getRemainingDay()">Apply</button>
           
         </div>
         <!-- <input type="submit" value="Add Leave Request"> -->
